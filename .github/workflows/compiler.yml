@@ -27,12 +27,19 @@ jobs:
         run: |
           pip install pyinstaller
           pip install pyinstaller[encryption]
-          cd
+          pip install wxPython
+      - name: Tests
+        # Make sure WX works
+        shell: python
+        run: |
+          import wx
+          a = wx.App()
+          w = wx.Frame(None, title='testing')
+          del w
+          del a
       - name: Compile
         shell: cmd
-        run: |
-          dir /b
-          pyinstaller --windowed main.py
+        run: pyinstaller --windowed main.py
       - name: upload dist artifacts
         uses: actions/upload-artifact@v3
         with:
