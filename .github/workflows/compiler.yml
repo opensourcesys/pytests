@@ -39,7 +39,7 @@ jobs:
           del a
       - name: Compile
         shell: cmd
-        run: pyinstaller --windowed main.py
+        run: pyinstaller --name="pytest" --windowed main.pyw
       - name: upload dist artifacts
         uses: actions/upload-artifact@v3
         with:
