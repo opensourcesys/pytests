@@ -2,10 +2,11 @@
 
 import wx
 
-app = wx.App()
-window = wx.Frame(None, title="WX Test Frame", size=(300, 200))
-panel = wx.Panel(window)
-label = wx.StaticText(panel, label="Hello World", pos=(100, 50))
-window.Show(True)
+import .globalVars
+import .gui
 
-app.MainLoop()
+
+if __name__ == '__main__':
+	app = wx.App()
+	gui.startup()
+	app.MainLoop()
