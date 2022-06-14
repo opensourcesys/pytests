@@ -2,11 +2,11 @@
 
 import wx
 
-import .globalVars
 import .gui
 
 
 if __name__ == '__main__':
 	app = wx.App()
-	gui.startup()
+	gui.setup()
+	gui.mainFrame.Show()
 	app.MainLoop()
