@@ -1,6 +1,7 @@
 import wx
 
 from file import file
+from constants import titles
 
 class MainFrame(wx.Frame):
 	"""The primary program frame. This is the base for the main program window. Virtual singleton."""
