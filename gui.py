@@ -1,8 +1,8 @@
 import wx
 
-import .misc
-from .constants import titles
-from .file import file
+import misc
+from constants import titles
+from file import file
 
 # Module level variables
 mainFrame = None
@@ -26,14 +26,16 @@ menus = [
 def setup() -> None:
 	"""Configures the GUI."""
 	global mainFrame, menuBar
-	if not mainFrame:
-		mainFrame = MainFrame()
+	# Mild sanity check
+	if mainFrame is not None or menuBar is not None:
+		raise RuntimeError("gui.setup() seems to have been called more than once!")
+	mainFrame = MainFrame()
 	# FixMe: do we need this?
 	#wx.GetApp().SetTopWindow(mainFrame)
 	# Create a menu bar, and add menus to it
 	menuBar = wx.MenuBar()
 	for menu in menus:
-		menuBar.Append(menu, menu.GetTitle())
+		menuBar.Append(menu, menu.Title)
 	# Add the just-created menuBar to the mainFrame
 	mainFrame.SetMenuBar(menuBar)
 
