@@ -2,7 +2,7 @@ import wx
 
 from file import file
 
-class MainFrame(wx.frame):
+class MainFrame(wx.Frame):
 	"""The primary program frame. This is the base for the main program window. Virtual singleton."""
 
 	def __init__(self, titlePrepend: str=""):
