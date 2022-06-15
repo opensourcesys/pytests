@@ -5,7 +5,6 @@ class Menu(wx.Menu):
 	Create the menu with the menu title, including optional shortkey indicator (&).
 	Provide all menu items as four-tuples in the following args.
 	Example: (wx.ID_XXXX, "&Name", "helpString", event_callable)
-	super().__init__() receives any kwargs.
 	"""
 
 	def __init__(self, title, *args):
