@@ -35,6 +35,6 @@ def setup() -> None:
 	# Create a menu bar, and add menus to it
 	menuBar = wx.MenuBar()
 	for menu in makeMenus():
-		menuBar.Append(menu, menu.Title)
+		menuBar.Append(menu, menu.GetTitle())
 	# Add the just-created menuBar to the mainFrame
 	mainFrame.SetMenuBar(menuBar)
