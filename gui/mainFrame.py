@@ -29,7 +29,7 @@ class MainFrame(wx.Frame):
 		dlg = wx.MessageDialog(self, message="Are you sure you want to quit?", caption="Caption", style=wx.YES_NO, pos=wx.DefaultPosition)
 		resp = dlg.ShowModal()
 		if resp == wx.ID_YES:
-			super().Close()
-		else:
-			evt..StopPropagation()
+			evt.Skip()#super().Close()
+		#else:
+			#evt..StopPropagation()
 

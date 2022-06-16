@@ -16,7 +16,7 @@ def makeMenus() -> list:
 		(wx.ID_NEW, "", "Creates a new project", None),
 		(wx.ID_OPEN, "", "Open an existing project", None),
 		(wx.ID_SEPARATOR, "", "", None),
-		(wx.ID_EXIT, "E&xit\tCtrl+Q", "Close the application", gui.shutdown)
+		(wx.ID_EXIT, "E&xit\tCtrl+Q", "Close the application", None)
 	),
 	Menu(
 		"&Help",
@@ -38,7 +38,12 @@ def setup() -> None:
 		menuBar.Append(menu, menu.GetTitle())
 	# Add the just-created menuBar to the mainFrame
 	mainFrame.SetMenuBar(menuBar)
+	# Bind events that we couldn't otherwise bind
+	mainFrame.Bind(wx.EVT_MENU, shutdown, wx.ID_EXIT)
+	mainFrame.Bind(wx.EVT_CLOSE, shutdown)
+
+
 
 def shutdown()
 	"""Initiates shutdown by passing the buck."""
-	gui.mainFrame.shutdown()
+	mainFrame.shutdown()
