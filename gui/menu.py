@@ -7,8 +7,13 @@ class Menu(wx.Menu):
 	Example: (wx.ID_XXXX, "&Name", "helpString", event_callable)
 	"""
 
+	_stealthTitle = None
+
 	def __init__(self, title, *args):
-		super().__init__(title, style=0)
+		super().__init__()
+		# We don't propagate the title up to the menu itself, because that displays it at the top.
+		# Instead, we carry it locally, and return it if asked via GetTitle().
+		self._stealthTitle = title
 		# Process each menu item, presented as a tuple in args
 		for id, name, helpString, toCall in args:
 			if id != wx.ID_SEPARATOR:
@@ -16,4 +21,17 @@ class Menu(wx.Menu):
 				if callable(toCall):
 					self.Bind(wx.EVT_MENU, toCall, thisItem)
 			else:  # It's a separator, not a real item
-				self.Append(wx.ID_SEPARATOR, kind=wx.ITEM_SEPARATOR)
+				self.AppendSeparator()
+
+	def GetTitle(self):
+		"""Overrides the wx.Menu.GetTitle method.
+		Because the kind of menus we prefer to use won't generally include displayed titles as their
+		first "item", we don't (usually) set a title.
+		But in case we did, this function checks and returns the parent class's title, if any.
+		If there isn't one, it instead returns the "stealth title" that is carried in the instance.
+		"""
+		realTitle = super().GetTitle()
+		if realTitle is not None and realTitle is not "":
+			return realTitle
+		else:
+			return self._stealthTitle
