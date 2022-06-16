@@ -41,16 +41,28 @@ jobs:
       - name: Compile
         shell: cmd
         run: pyinstaller --name="pyTestApp" main.pyw
+      - name: Zip up locally
+        uses: thedoctor0/zip-release@main
+        with:
+          type: 'zip'
+          filename: 'app.zip'
+          path: dist/
+      - name: Upload app archive
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: app.zip
+          retention-days: 1
       - name: upload dist artifacts
         uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist
             #!dist/**/*.md
-          retention-days: 2
-      - name: Upload spec artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: main.spec
-          path: main.spec
-          retention-days: 2
+          retention-days: 1
+      #- name: Upload spec artifact
+        #uses: actions/upload-artifact@v3
+        #with:
+          #name: main.spec
+          #path: main.spec
+          #retention-days: 1
