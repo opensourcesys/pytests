@@ -53,13 +53,13 @@ jobs:
           name: app
           path: app.zip
           retention-days: 1
-      - name: upload dist artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
+      #- name: upload dist artifacts
+        #uses: actions/upload-artifact@v3
+        #with:
+          #name: dist
+          #path: dist
             #!dist/**/*.md
-          retention-days: 1
+          #retention-days: 1
       #- name: Upload spec artifact
         #uses: actions/upload-artifact@v3
         #with:
