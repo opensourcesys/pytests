@@ -21,3 +21,8 @@ class MainFrame(wx.Frame):
 		)
 		# FixMe: this can max and restore
 		self.Maximize()
+
+	def shutdown(self, evt):
+		"""It's all ending. I can feel it slipping away...
+		But what if the user hasn't saved yet?
+		"""

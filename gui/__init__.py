@@ -1,6 +1,6 @@
 import wx
 
-import misc
+#import misc
 from .mainFrame import MainFrame
 from .menu import Menu
 
@@ -14,9 +14,9 @@ def makeMenus() -> list:
 	return [Menu(
 		"&File",
 		(wx.ID_NEW, "", "Creates a new project", None),
-		(wx.ID_OPEN, "Open", "Open an existing project", None),
+		(wx.ID_OPEN, "", "Open an existing project", None),
 		(wx.ID_SEPARATOR, "", "", None),
-		(wx.ID_EXIT, "Exit", "Close application", misc.quit)
+		(wx.ID_EXIT, "E&xit\tCtrl+Q", "Close the application", mainFrame.shutdown)
 	),
 	Menu(
 		"&Help",
