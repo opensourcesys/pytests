@@ -26,3 +26,10 @@ class MainFrame(wx.Frame):
 		"""It's all ending. I can feel it slipping away...
 		But what if the user hasn't saved yet?
 		"""
+		dlg = wx.MessageDialog(self, message="Are you sure you want to quit?", caption="Caption", style=wx.YES_NO, pos=wx.DefaultPosition)
+		resp = dlg.ShowModal()
+		if resp == wx.ID_YES:
+			super().Close()
+		else:
+			evt..StopPropagation()
+
