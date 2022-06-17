@@ -8,6 +8,11 @@ mainFrame = None
 menuBar = None
 
 
+def shutdown()
+	"""Initiates shutdown by passing the buck."""
+	mainFrame.shutdown()
+
+
 def makeMenus() -> list:
 	"""Returns a list containing all of the generated menus for the menubar."""
 	return [Menu(
@@ -37,7 +42,3 @@ def setup() -> None:
 		menuBar.Append(menu, menu.GetTitle())
 	# Add the just-created menuBar to the mainFrame
 	mainFrame.SetMenuBar(menuBar)
-
-def shutdown(evt):
-	"""Initiates shutdown by passing the buck."""
-	mainFrame.shutdown(evt)
