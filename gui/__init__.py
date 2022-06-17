@@ -8,9 +8,9 @@ mainFrame = None
 menuBar = None
 
 
-def shutdown()
+def shutdown(evt):
 	"""Initiates shutdown by passing the buck."""
-	mainFrame.shutdown()
+	mainFrame.shutdown(evt)
 
 
 def makeMenus() -> list:
