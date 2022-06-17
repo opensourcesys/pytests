@@ -21,12 +21,12 @@ jobs:
           python-version: 3.9
       #- name: Install correct version of configobj
         #run: python -m pip install 'git+git://github.com/DiffSK/configobj@3e2f4cca81b60171e6b3e23619f6f4929a13322e#egg=configobj'
-      - name: Upgrade pip
-        run: python -m pip install --upgrade pip
+      #- name: Upgrade pip
+        #run: python -m pip install --upgrade pip
       - name: Install pyinstaller
         run: |
           pip install pyinstaller
-          pip install pyinstaller[encryption]
+          #pip install pyinstaller[encryption]
       - name: Install WX
         run: pip install wxPython
       - name: Tests
