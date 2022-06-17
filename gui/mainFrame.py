@@ -26,3 +26,4 @@ class MainFrame(wx.Frame):
 		"""It's all ending. I can feel it slipping away...
 		But what if the user hasn't saved yet?
 		"""
+		pass
