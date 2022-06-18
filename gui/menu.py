@@ -18,8 +18,8 @@ class Menu(wx.Menu):
 		for id, name, helpString, toCall in args:
 			if id != wx.ID_SEPARATOR:
 				thisItem = self.Append(id, name, helpString)
-				if callable(toCall):
-					self.Bind(wx.EVT_MENU, toCall, thisItem)
+				if toCall is not None: #callable(toCall):
+					self.Bind(wx.EVT_MENU, toCall, id=id)
 			else:  # It's a separator, not a real item
 				self.AppendSeparator()
 
