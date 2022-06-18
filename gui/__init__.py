@@ -38,5 +38,5 @@ def setup() -> None:
 	# Add the just-created menuBar to the mainFrame
 	mainFrame.SetMenuBar(menuBar)
 	# Bind events that we couldn't otherwise bind
-	mainFrame.Bind(wx.EVT_MENU, mainFrame.OnClose, id=wx.ID_EXIT)
+	#mainFrame.Bind(wx.EVT_MENU, mainFrame.OnClose, id=wx.ID_EXIT)
 	mainFrame.Bind(wx.EVT_CLOSE, mainFrame.OnClose)
