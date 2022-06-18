@@ -15,7 +15,7 @@ def makeMenus() -> list:
 		(wx.ID_NEW, "", "Creates a new project", None),
 		(wx.ID_OPEN, "", "Open an existing project", None),
 		(wx.ID_SEPARATOR, "", "", None),
-		(wx.ID_EXIT, "E&xit\tCtrl+Q", "Close the application", None)
+		(wx.ID_EXIT, "E&xit\tCtrl+Q", "Close the application", mainFrame.OnClose)
 	),
 	Menu(
 		"&Help",
