@@ -8,11 +8,6 @@ mainFrame = None
 menuBar = None
 
 
-def shutdown(evt):
-	"""Initiates shutdown by passing the buck."""
-	mainFrame.shutdown(evt)
-
-
 def makeMenus() -> list:
 	"""Returns a list containing all of the generated menus for the menubar."""
 	return [Menu(
@@ -43,5 +38,5 @@ def setup() -> None:
 	# Add the just-created menuBar to the mainFrame
 	mainFrame.SetMenuBar(menuBar)
 	# Bind events that we couldn't otherwise bind
-	mainFrame.Bind(wx.EVT_MENU, mainFrame.shutdown, id=wx.ID_EXIT)
-	mainFrame.Bind(wx.EVT_CLOSE, mainFrame.shutdown)
+	mainFrame.Bind(wx.EVT_MENU, mainFrame.OnClose, id=wx.ID_EXIT)
+	mainFrame.Bind(wx.EVT_CLOSE, mainFrame.OnClose)
