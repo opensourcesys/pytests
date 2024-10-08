@@ -14,11 +14,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3  # checkout the repository content to github runner.
+        uses: actions/checkout@v4  # checkout the repository content to github runner.
       - name: Install Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.11
       #- name: Install correct version of configobj
         #run: python -m pip install 'git+git://github.com/DiffSK/configobj@3e2f4cca81b60171e6b3e23619f6f4929a13322e#egg=configobj'
       #- name: Upgrade pip
@@ -49,20 +49,20 @@ jobs:
           directory: dist
           path: pyTestApp
       - name: Upload app archive
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app.zip
           path: dist/app.zip
           retention-days: 1
       #- name: upload dist artifacts
-        #uses: actions/upload-artifact@v3
+        #uses: actions/upload-artifact@v4
         #with:
           #name: dist
           #path: dist
             #!dist/**/*.md
           #retention-days: 1
       #- name: Upload spec artifact
-        #uses: actions/upload-artifact@v3
+        #uses: actions/upload-artifact@v4
         #with:
           #name: main.spec
           #path: main.spec
